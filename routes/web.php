@@ -24,5 +24,13 @@ Route::get('/contact', function(){
 });
 
 Route::get('/about', function(){
-    return view('about');
+    //$articles = App\Article::all();
+    //$articles = App\Article::take(2)->get();
+    //$articles = App\Article::paginate(2);
+    //$articles = App\Article::latest()->get();
+    $articles = App\Article::take(3)->latest()->get();
+
+    return view('about', [
+        'articles' => $articles
+    ]);
 });
