@@ -40,7 +40,9 @@ class ArticlesController extends Controller
 
         Article::create($this->validateArticle());
 
-        return redirect('/articles');
+        // return redirect('/articles');
+        return redirect(route('articles.index'));
+
     }
 
     //Show a view to edit an existing resource
@@ -66,7 +68,7 @@ class ArticlesController extends Controller
 
         $article->update($this->validateArticle());
 
-        return redirect('/articles/' . $article->id);
+        return redirect($article->path());
     }
 
     //Delete the resource
